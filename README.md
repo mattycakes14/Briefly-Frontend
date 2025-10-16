@@ -2,25 +2,27 @@
 
 Minimal frontend prototype for voice-activated meeting prep assistant.
 
-## Quick Start
+## Setup
 
 ```bash
 npm install
 npx expo start
 ```
 
-Scan QR code with Expo GO app on your phone.
+Scan QR code with Expo GO app.
 
-## Features
+## Screens
 
-- Onboarding screen
-- ChatGPT-like interface
-- Collapsible dashboard (GitHub/Jira stats)
-- Voice input button (mock)
-- Mock data responses
+**Dashboard**
+- "Ask Briefly about meetings" button
+- Previous chats list (mock data)
 
-## Test Queries
+**Voice**
+- Simple listening interface
+- Tap to activate voice
 
-- "Prep me for standup"
-- "What's blocking the auth feature?"
-- "Show me my open PRs"
+## Tech
+
+- Expo SDK 54
+- React Native 0.81.4
+- React Navigation
