@@ -1,17 +1,24 @@
-import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, StyleSheet, Image } from 'react-native';
 import { mockChats } from '../data/mockData';
 
 export default function DashboardScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Briefly</Text>
+      <Text style={styles.logo}>Briefly</Text>
       
-      <TouchableOpacity 
-        style={styles.askButton}
-        onPress={() => navigation.navigate('Voice')}
-      >
-        <Text style={styles.askText}>Ask Briefly about meetings</Text>
-      </TouchableOpacity>
+      <Text style={styles.greeting}>Good morning! Matt 👋</Text>
+      <Text style={styles.subtitle}>Let's see what I can do for you?</Text>
+
+      <View style={styles.card}>
+        <Image source={require('../assets/chat.png')} style={styles.cardImage} />
+        <Text style={styles.cardTitle}>Ask Briefly about meetings</Text>
+        <TouchableOpacity 
+          style={styles.createButton}
+          onPress={() => navigation.navigate('Voice')}
+        >
+          <Text style={styles.createButtonText}>Create new</Text>
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.historySection}>
         <Text style={styles.sectionTitle}>PREVIOUS CHATS</Text>
@@ -33,52 +40,87 @@ export default function DashboardScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0F172A',
+    backgroundColor: '#1A1D2E',
     padding: 20,
-    paddingTop: 60,
+    paddingTop: 50,
   },
-  title: {
-    fontSize: 32,
+  logo: {
+    fontSize: 28,
     fontWeight: '700',
-    color: '#60A5FA',
+    color: '#FFFFFF',
+    letterSpacing: -0.5,
     marginBottom: 30,
   },
-  askButton: {
-    backgroundColor: '#1E293B',
+  greeting: {
+    fontSize: 17,
+    fontWeight: '400',
+    color: '#8B92B0',
+    marginBottom: 6,
+  },
+  subtitle: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    marginBottom: 28,
+    lineHeight: 30,
+  },
+  card: {
+    backgroundColor: '#2D3348',
     padding: 20,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#60A5FA',
-    marginBottom: 30,
+    borderRadius: 16,
+    marginBottom: 40,
+    position: 'relative',
+    borderWidth: 1,
+    borderColor: '#3A4057',
   },
-  askText: {
-    color: '#60A5FA',
-    fontSize: 18,
+  cardImage: {
+    width: 48,
+    height: 48,
+    marginBottom: 16,
+    tintColor: '#8B92B0',
+  },
+  cardTitle: {
+    color: '#FFFFFF',
+    fontSize: 20,
     fontWeight: '600',
-    textAlign: 'center',
+    marginBottom: 20,
+  },
+  createButton: {
+    backgroundColor: '#5B6FFF',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    alignSelf: 'flex-start',
+  },
+  createButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '600',
   },
   historySection: {
     flex: 1,
   },
   sectionTitle: {
-    color: '#94A3B8',
-    fontSize: 14,
+    color: '#8B92B0',
+    fontSize: 13,
     fontWeight: '600',
-    marginBottom: 15,
+    marginBottom: 16,
+    letterSpacing: 0.5,
   },
   chatItem: {
-    backgroundColor: '#1E293B',
-    padding: 15,
-    borderRadius: 8,
-    marginBottom: 10,
+    backgroundColor: '#252A3F',
+    padding: 18,
+    borderRadius: 14,
+    marginBottom: 12,
   },
   chatTitle: {
     color: '#FFFFFF',
-    fontSize: 16,
-    marginBottom: 5,
+    fontSize: 15,
+    fontWeight: '500',
+    marginBottom: 6,
   },
   chatTime: {
-    color: '#64748B',
-    fontSize: 12,
+    color: '#6B7280',
+    fontSize: 13,
   },
 });
